@@ -78,7 +78,7 @@ const TodoLayout = () => {
                 </button>
                 </div>
                 }
-                <ul style={{marginTop: '10px', width: '100%', listStyleType: 'none', padding: 0 }}>
+                <ul style={{marginTop: '10px', width: '100%', listStyleType: 'circle', padding: 0 }}>
                     {todos?.map((todo) => (
                         <li
                             key={todo.id}
@@ -86,17 +86,17 @@ const TodoLayout = () => {
                                 cursor: 'pointer',
                                 marginTop: '5px',
                                 width: '100%',
-                                display: "flex",justifyContent: "space-around", alignItems: 'center',
-                                padding: '22px'
+                                display: "flex", justifyContent: "space-around", alignItems: 'center',
+                                padding: '22px',  
                             }}
                         >
                             <div>
-                                <input type="checkbox" onChange={() => handleToggleTodo(todo.id)} checked={todo.completed} />
+                                {/* <input type="checkbox" onChange={() => handleToggleTodo(todo.id)} checked={todo.completed} /> */}
                                <button style={{  border: 'none', backgroundColor: 'white', textDecoration: todo.completed && !isEdit ? 'line-through' : 'none',marginLeft: '5px' }}>{todo.text}</button>
                             </div>
                             <div>
                                 <button onClick={() => handleEditTodo(todo.id)} style={{ outline: "none", marginLeft: '10px', padding: '3px' }}>Edit</button>
-                            <button onClick={() => handleDeleteTodo(todo.id)} style={{ outline: "none", marginLeft: '10px', padding: '3px' }}>Delete</button>
+                                <button onClick={() => handleDeleteTodo(todo.id)} style={{ outline: "none", marginLeft: '10px', padding: '3px' }}>Delete</button>
                             </div>
                         </li>
                     ))}
